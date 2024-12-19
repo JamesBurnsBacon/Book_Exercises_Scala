@@ -16,7 +16,7 @@ println("Answer: " + 42)
 val name = "Fred"
 val age = 42
 println(f"Hello, $name! In six months, you'll be ${age + 0.5}%7.2f years old.")
-
+//need brackets around expressions that are not variable names
 // The raw interpolator:
 raw"\n is a newline"
 

@@ -5,6 +5,7 @@ final class section5$u002Eworksheet$_ {
 def args = section5$u002Eworksheet_sc.args$
 def scriptPath = """scala-impatient-3e-code/ch2/src/main/scala/section5.worksheet.sc"""
 /*<script>*/
+import scala.compiletime.ops.double
 // The quiet syntax
 var r = 1
 var n = 10
@@ -12,6 +13,11 @@ while n > 0 do
   r = r * n
   n -= 1
 r
+
+while n > 0 do
+  r = r * n
+  n -=1
+r  
 
 // The noisy syntax
 r = 1

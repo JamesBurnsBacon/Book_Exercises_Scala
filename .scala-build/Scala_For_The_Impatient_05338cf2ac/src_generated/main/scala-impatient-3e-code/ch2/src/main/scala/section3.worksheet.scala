@@ -38,7 +38,7 @@ var j = 0
 // This assignment does not set i to 1:
 i = j = 1 // Does not set i to 1
 
-// Use two assignments: 
+// Use two assignments, don't chain 
 j = 1
 i = j
 

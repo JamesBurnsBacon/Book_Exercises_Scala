@@ -1,3 +1,4 @@
+import scala.compiletime.ops.double
 // The quiet syntax
 var r = 1
 var n = 10
@@ -5,6 +6,11 @@ while n > 0 do
   r = r * n
   n -= 1
 r
+
+while n > 0 do
+  r = r * n
+  n -=1
+r  
 
 // The noisy syntax
 r = 1
