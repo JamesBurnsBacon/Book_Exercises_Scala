@@ -40,7 +40,7 @@ val example4 =
 
 // This function returns no value:
 import java.time.*
-def log(sb: StringBuilder, message: String) = 
+def log(sb: StringBuilder, message: String): Unit = 
   sb.append(java.time.Instant.now())
   sb.append(": ")
   sb.append(message)
