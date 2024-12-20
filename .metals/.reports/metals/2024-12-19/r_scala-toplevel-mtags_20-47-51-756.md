@@ -1,4 +1,4 @@
-package scala$minusimpatient$minus3e$minuscode.ch2.src.main.scala
+error id: file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala:[516..517) in Input.VirtualFile("file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala", "package scala$minusimpatient$minus3e$minuscode.ch2.src.main.scala
 
 
 final class Exercises$u002Eworksheet$_ {
@@ -6,7 +6,6 @@ def args = Exercises$u002Eworksheet_sc.args$
 def scriptPath = """scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.sc"""
 /*<script>*/
 // 1 prints the message on the first line, and empty parentheses on the second line
-import scala.compiletime.ops.double
 //It prints the parentheses as if literal
 println(println("Hello"))
 
@@ -35,59 +34,13 @@ def signum(n: Double) =
         0
 
 // 6 function countdown(n:Int) that prints the numbers from n to 0 w/o returning val
-//var number7: Int = 7
+//var n: Int = 7
 def countdown(n: Int) =
-    var count = n
-    while count >= 0 do
-      println(count)
-      count -= 1
+    while n >= 0 do
+        println(n)
+     |  n -= 1
     end while
-countdown(7)    
-
-// 7 Write a for loop for computing product of unicode codes of all letters in str.
-val h = "Hello"
-var product = 1
-def unicodeProduct(s: String) =
-    for i <- 0 to h.length -1 do
-        product *= h(i).toInt
-    product
-
-// 8 Solve preceding without writing a loop
-def unicodeProduct2(s: String = "Hello") =
-    var product = 1
-    s.foreach(product *= _)
-    product
-unicodeProduct2()
-//another formatting
-def unicodeProduct2a(s: String = "Hello") =
-    var product = 1
-    s.foreach(c => product *= c)
-    product
-unicodeProduct2a()
-
-// 9 Write a function that computes the product named product(s: String)
-def product(s: String = "Hello") =
-    var productTotal = 1
-    s.foreach(c => productTotal *= c)
-    productTotal
-product()
-
-// 10 Make the function recursive
-def productRecursive(s: String) : Int =
-    if s.length == 0 then 1
-    else s.head * productRecursive(s.tail)
-productRecursive("Hello")        
-
-// 11 Function computes x^n where n is an integer, recursively
-def recursiveExponent(x: BigDecimal, n: Integer) : BigDecimal =
-    if n == 0 then 1
-    else if n > 0 then
-      if n % 2 == 0 then recursiveExponent(x, n / 2) * recursiveExponent(x, n / 2) // + even n's
-      else x * recursiveExponent(x,n - 1) // + odd n's
-    else 1 / recursiveExponent(x, -n)//negative n's
-recursiveExponent(3,3)
-
-// 
+countdown(4)    
 /*</script>*/ /*<generated>*//*</generated>*/
 }
 
@@ -111,3 +64,10 @@ object Exercises$u002Eworksheet_sc {
 
 export Exercises$u002Eworksheet_sc.script as `Exercises.worksheet`
 
+")
+file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala:13: error: expected identifier; obtained lbrace
+type {} //Unit
+     ^
+#### Short summary: 
+
+expected identifier; obtained lbrace

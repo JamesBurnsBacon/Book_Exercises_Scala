@@ -1,4 +1,4 @@
-package scala$minusimpatient$minus3e$minuscode.ch2.src.main.scala
+error id: file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala:[553..554) in Input.VirtualFile("file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala", "package scala$minusimpatient$minus3e$minuscode.ch2.src.main.scala
 
 
 final class Exercises$u002Eworksheet$_ {
@@ -79,15 +79,13 @@ def productRecursive(s: String) : Int =
 productRecursive("Hello")        
 
 // 11 Function computes x^n where n is an integer, recursively
-def recursiveExponent(x: BigDecimal, n: Integer) : BigDecimal =
+def recursiveExponent(x: BigInt, n: Integer) : BigInt =
     if n == 0 then 1
-    else if n > 0 then
-      if n % 2 == 0 then recursiveExponent(x, n / 2) * recursiveExponent(x, n / 2) // + even n's
-      else x * recursiveExponent(x,n - 1) // + odd n's
-    else 1 / recursiveExponent(x, -n)//negative n's
-recursiveExponent(3,3)
-
-// 
+    else if n > 0 && n % 2 == 0 then recursiveExponent(x.pow(n/2) * x.pow(n/2), 1) // + even n's
+    else if n > 0 && n % 2 != 0 then recursiveExponent(x * x,n - 1) // + odd n's
+    else if n < 0 then recursiveExponent(1/x.pow(-n), 1)//negative n's
+    else x
+recursiveExponent(2,2)
 /*</script>*/ /*<generated>*//*</generated>*/
 }
 
@@ -111,3 +109,10 @@ object Exercises$u002Eworksheet_sc {
 
 export Exercises$u002Eworksheet_sc.script as `Exercises.worksheet`
 
+")
+file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala:14: error: expected identifier; obtained lbrace
+type {} //Unit
+     ^
+#### Short summary: 
+
+expected identifier; obtained lbrace
