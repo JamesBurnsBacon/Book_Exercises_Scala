@@ -80,4 +80,30 @@ def recursiveExponent(x: BigDecimal, n: Integer) : BigDecimal =
     else 1 / recursiveExponent(x, -n)//negative n's
 recursiveExponent(3,3)
 
-// 
+// 12 String interpolator
+object DateInterpolator {
+    import java.time.LocalDate
+
+    extension (sc: StringContext)
+        def date(args: Any*): LocalDate =
+            
+            if sc.parts.length != args.length +1 then
+                throw new IllegalArgumentException("Expected format is 'yyyy-mm-dd'.")
+            else
+                val year = args(0).asInstanceOf[Int]
+                val month = args(1).asInstanceOf[Int] 
+                val day = args(2).asInstanceOf[Int]
+                LocalDate.of(year, month, day)
+}
+val year = 2024; val month = 07; val day = 04
+
+//import Exercises$u002Eworksheet$_.this.DateInterpolator.date
+import DateInterpolator.date
+val testDate = date"$year-$month-$day"
+println(testDate)  
+
+// 13 Parse a command line arg into an arbitrary type
+import java.time.*
+import scala.util.* 
+given CommandLineParser.FromString[LocalDate] with
+    def fromString(s: String) = LocalDate.parse(s)

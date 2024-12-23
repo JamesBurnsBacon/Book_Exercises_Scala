@@ -1,11 +1,4 @@
-package scala$minusimpatient$minus3e$minuscode.ch2.src.main.scala
-
-
-final class Exercises$u002Eworksheet$_ {
-def args = Exercises$u002Eworksheet_sc.args$
-def scriptPath = """scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.sc"""
-/*<script>*/
-// 1 prints the message on the first line, and empty parentheses on the second line
+error id: file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.sc:[290..291) in Input.VirtualFile("file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.sc", "// 1 prints the message on the first line, and empty parentheses on the second line
 import scala.compiletime.ops.double
 //It prints the parentheses as if literal
 println(println("Hello"))
@@ -93,8 +86,8 @@ object DateInterpolator {
 
     extension (sc: StringContext)
         def date(args: Any*): LocalDate =
-            
-            if sc.parts.length != args.length +1 then
+            val parts = sc.parts.mkString.split("-").map(_.trim)
+            if parts.length != 3 then
                 throw new IllegalArgumentException("Expected format is 'yyyy-mm-dd'.")
             else
                 val year = args(0).asInstanceOf[Int]
@@ -102,39 +95,14 @@ object DateInterpolator {
                 val day = args(2).asInstanceOf[Int]
                 LocalDate.of(year, month, day)
 }
-val year = 2024; val month = 07; val day = 04
+val year = "2024"; val month = "07"; val day = "04"
 
-//import Exercises$u002Eworksheet$_.this.DateInterpolator.date
-import DateInterpolator.date
+import Exercises$u002Eworksheet$_.this.DateInterpolator.date
 val testDate = date"$year-$month-$day"
-println(testDate)  
+println(testDate)  ")
+file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.sc:7: error: expected identifier; obtained lbrace
+type {} //Unit
+     ^
+#### Short summary: 
 
-// 13 Parse a command line arg into an arbitrary type
-import java.time.*
-import scala.util.* 
-given CommandLineParser.FromString[LocalDate] with
-    def fromString(s: String) = LocalDate.parse(s)
-
-/*</script>*/ /*<generated>*//*</generated>*/
-}
-
-object Exercises$u002Eworksheet_sc {
-  private var args$opt0 = Option.empty[Array[String]]
-  def args$set(args: Array[String]): Unit = {
-    args$opt0 = Some(args)
-  }
-  def args$opt: Option[Array[String]] = args$opt0
-  def args$: Array[String] = args$opt.getOrElse {
-    sys.error("No arguments passed to this script")
-  }
-
-  lazy val script = new Exercises$u002Eworksheet$_
-
-  def main(args: Array[String]): Unit = {
-    args$set(args)
-    val _ = script.hashCode() // hashCode to clear scalac warning about pure expression in statement position
-  }
-}
-
-export Exercises$u002Eworksheet_sc.script as `Exercises.worksheet`
-
+expected identifier; obtained lbrace

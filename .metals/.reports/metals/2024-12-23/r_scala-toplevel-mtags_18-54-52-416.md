@@ -1,4 +1,4 @@
-package scala$minusimpatient$minus3e$minuscode.ch2.src.main.scala
+error id: file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala:[553..554) in Input.VirtualFile("file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala", "package scala$minusimpatient$minus3e$minuscode.ch2.src.main.scala
 
 
 final class Exercises$u002Eworksheet$_ {
@@ -93,8 +93,8 @@ object DateInterpolator {
 
     extension (sc: StringContext)
         def date(args: Any*): LocalDate =
-            
-            if sc.parts.length != args.length +1 then
+            val parts = sc.parts.mkString.split("-").map(_.trim)
+            if parts.length != 3 then
                 throw new IllegalArgumentException("Expected format is 'yyyy-mm-dd'.")
             else
                 val year = args(0).asInstanceOf[Int]
@@ -104,17 +104,10 @@ object DateInterpolator {
 }
 val year = 2024; val month = 07; val day = 04
 
-//import Exercises$u002Eworksheet$_.this.DateInterpolator.date
+import Exercises$u002Eworksheet$_.this.DateInterpolator.date
 import DateInterpolator.date
 val testDate = date"$year-$month-$day"
 println(testDate)  
-
-// 13 Parse a command line arg into an arbitrary type
-import java.time.*
-import scala.util.* 
-given CommandLineParser.FromString[LocalDate] with
-    def fromString(s: String) = LocalDate.parse(s)
-
 /*</script>*/ /*<generated>*//*</generated>*/
 }
 
@@ -138,3 +131,10 @@ object Exercises$u002Eworksheet_sc {
 
 export Exercises$u002Eworksheet_sc.script as `Exercises.worksheet`
 
+")
+file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala:14: error: expected identifier; obtained lbrace
+type {} //Unit
+     ^
+#### Short summary: 
+
+expected identifier; obtained lbrace
