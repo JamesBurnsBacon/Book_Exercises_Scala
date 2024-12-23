@@ -30,10 +30,4 @@ The `[AL][1-3]` refer to Martin Odersky's Scala levels.
 - [ ] Annotations  
 - [ ] Futures  
 
-### Advanced Types and Abstractions (L2)
-- [ ] Type Parameters  
-- [ ] Advanced Types  
-
-### Contextual and Type-Level Programming (L3)
-- [ ] Contextual Abstractions  
-- [ ] Type-Level Programming  
+To limit this project's scope, I plan to skip the advanced library builder modules of chapters 17-20. 
