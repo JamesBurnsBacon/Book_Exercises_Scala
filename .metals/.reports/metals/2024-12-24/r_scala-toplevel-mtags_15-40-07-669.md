@@ -1,4 +1,4 @@
-package scala$minusimpatient$minus3e$minuscode.ch2.src.main.scala
+error id: file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala:[593..594) in Input.VirtualFile("file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala", "package scala$minusimpatient$minus3e$minuscode.ch2.src.main.scala
 
 
 final class Exercises$u002Eworksheet$_ {
@@ -124,20 +124,19 @@ object DaysBetweenDates {
                 case Failure(_) => 
                     throw new IllegalArgumentException(s"Invalid date format: $s. Use 'yyyy-mm-dd'.") 
 
-    @main def run(date1:String, date2:String): Unit =
-        Try {
+    def run(date1:String, date2:String): Unit =
+        Try
             val firstDate = summon[CommandLineParser.FromString[LocalDate]].fromString(date1) 
             val secondDate = summon[CommandLineParser.FromString[LocalDate]].fromString(date2)
 
             val daysBetween = java.time.temporal.ChronoUnit.DAYS.between(firstDate, secondDate).abs
             println(s"The number of days between $firstDate and $secondDate is: $daysBetween.")
-        } match
+        Match
             case Success(_) =>
             case Failure(ex) =>
                 println(s"Error: ${ex.getMessage}") 
 }                             
 
-//DaysBetweenDates.run("2024-01-01","2024-01-10")
 
 
 /*</script>*/ /*<generated>*//*</generated>*/
@@ -163,3 +162,10 @@ object Exercises$u002Eworksheet_sc {
 
 export Exercises$u002Eworksheet_sc.script as `Exercises.worksheet`
 
+")
+file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/.scala-build/Scala_For_The_Impatient_05338cf2ac/src_generated/main/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.scala:15: error: expected identifier; obtained lbrace
+type {} //Unit
+     ^
+#### Short summary: 
+
+expected identifier; obtained lbrace

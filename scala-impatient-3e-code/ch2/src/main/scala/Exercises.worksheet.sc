@@ -1,5 +1,6 @@
 // 1 prints the message on the first line, and empty parentheses on the second line
 import scala.compiletime.ops.double
+import scala.util.matching.Regex.Match
 //It prints the parentheses as if literal
 println(println("Hello"))
 
@@ -103,7 +104,31 @@ val testDate = date"$year-$month-$day"
 println(testDate)  
 
 // 13 Parse a command line arg into an arbitrary type
+// write a scala program that receives two dates on the command line and prints the number
+// of days between them. Your Main function should have two params of type LocalDate.
 import java.time.*
 import scala.util.* 
-given CommandLineParser.FromString[LocalDate] with
-    def fromString(s: String) = LocalDate.parse(s)
+
+object DaysBetweenDates {
+    given CommandLineParser.FromString[LocalDate] with
+        def fromString(s: String): LocalDate =
+            Try(LocalDate.parse(s)) match
+                case Success(date) => date
+                case Failure(_) => 
+                    throw new IllegalArgumentException(s"Invalid date format: $s. Use 'yyyy-mm-dd'.") 
+
+    @main def run(date1:String, date2:String): Unit =
+        Try {
+            val firstDate = summon[CommandLineParser.FromString[LocalDate]].fromString(date1) 
+            val secondDate = summon[CommandLineParser.FromString[LocalDate]].fromString(date2)
+
+            val daysBetween = java.time.temporal.ChronoUnit.DAYS.between(firstDate, secondDate).abs
+            println(s"The number of days between $firstDate and $secondDate is: $daysBetween.")
+        } match
+            case Success(_) =>
+            case Failure(ex) =>
+                println(s"Error: ${ex.getMessage}") 
+}                             
+
+//DaysBetweenDates.run("2024-01-01","2024-01-10")
+
