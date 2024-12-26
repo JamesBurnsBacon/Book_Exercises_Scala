@@ -23,6 +23,9 @@ a.indices.reverse
 for elem <- a do
   println(elem)
 
+
+// until is similar to do, but excludes the last value eg i from 0 to a.length -1
+
 /*</script>*/ /*<generated>*//*</generated>*/
 }
 

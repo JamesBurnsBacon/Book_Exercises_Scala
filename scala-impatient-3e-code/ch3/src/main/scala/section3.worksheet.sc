@@ -15,3 +15,6 @@ a.indices.reverse
 // If you don't need the indices, traverse the elements: 
 for elem <- a do
   println(elem)
+
+
+// until is similar to do, but excludes the last value eg i from 0 to a.length -1

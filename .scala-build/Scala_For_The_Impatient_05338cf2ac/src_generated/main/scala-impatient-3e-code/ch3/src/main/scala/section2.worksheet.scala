@@ -29,8 +29,11 @@ b.remove(2, 3)
   // ArrayBuffer(1, 1, 2)
   // The second parameter tells how many elements to remove
 b.toArray
-  // Array(1, 1, 2)
+  // Array(1, 1, 2) //b.toBuffer for inverse
 
+// Python list is the equivalent of Scala ArrayBuffer
+// append with ++= to any collection
+// adding or removing at the end is efficient, inserting and removing inside is slower
 /*</script>*/ /*<generated>*//*</generated>*/
 }
 
