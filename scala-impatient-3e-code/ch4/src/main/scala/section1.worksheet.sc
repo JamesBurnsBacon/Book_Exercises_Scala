@@ -17,3 +17,9 @@ scores2("Zelda")
 val scores3 = scores.withDefault(_.length)
 scores3("Zelda")
   // Yields 5, applying the length function to the key that is not present
+
+  //hash tables, or maps are among the most versatile data structures
+  //options used for looking up keys in maps in case of failure
+  //key/value pairs a pair is a tuple with n=2
+  //default is hashmap, treemaps also available
+  //func computes vals, map just looks them up
