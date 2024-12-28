@@ -28,6 +28,7 @@ a.toString
 b.toString
   // "ArrayBuffer(1, 7, 2, 9)"
 
+// .sum .min .max built in func0
 /*</script>*/ /*<generated>*//*</generated>*/
 }
 

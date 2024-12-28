@@ -20,3 +20,5 @@ a.toString
   // This is the useless toString method for arrays, straight from Java
 b.toString
   // "ArrayBuffer(1, 7, 2, 9)"
+
+// .sum .min .max built in func0
