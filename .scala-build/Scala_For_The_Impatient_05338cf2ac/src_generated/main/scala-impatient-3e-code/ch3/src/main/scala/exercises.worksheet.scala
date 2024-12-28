@@ -73,6 +73,21 @@ arrayBuffer9.dropRightInPlace(arrayBuffer9.length - positionsToKeep.length)
 // 10 collection of time zones, strip off America/ prefix and sort the result
 import java.util.TimeZone.getAvailableIDs
 
+val timeZones = getAvailableIDs()
+val aTimeZones = timeZones.filter(_.startsWith("America/")).map(_.stripPrefix("America/"))
+val sortedATimeZones = aTimeZones.sorted
+println(sortedATimeZones)
+
+// 11 make an object of type SystemFlavorMap with the call
+import java.awt.datatransfer.* 
+import scala.jdk.CollectionConverters.*
+val flavorMap = SystemFlavorMap.getDefaultFlavorMap().asInstanceOf[SystemFlavorMap]
+val natives = flavorMap.getNativesForFlavor(DataFlavor.imageFlavor)
+val scalaSeq = natives.asScala.toSeq
+val scalaBuffer = ArrayBuffer(scalaSeq: _*)
+// then call the GetNativesForFlavor method with param DataFlavor.imageFlavor and get the
+// return value as a Scala buffer.
+
 
 
 
