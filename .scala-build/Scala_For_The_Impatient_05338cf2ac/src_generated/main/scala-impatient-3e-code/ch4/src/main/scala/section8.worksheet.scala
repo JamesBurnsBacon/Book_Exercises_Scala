@@ -31,6 +31,7 @@ val third = t._3 // Sets third to "Fred"
 // A method that returns a tuple
 "New York".partition(_.isUpper) // Yields the pair ("NY", "ew ork")
 
+//auto tupling behavior in scala can be surprising
 /*</script>*/ /*<generated>*//*</generated>*/
 }
 
