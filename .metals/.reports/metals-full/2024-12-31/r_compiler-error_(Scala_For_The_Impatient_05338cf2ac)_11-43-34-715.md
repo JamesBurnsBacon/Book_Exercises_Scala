@@ -1,11 +1,9 @@
-file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.sc
+file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/scala-impatient-3e-code/ch4/src/main/scala/exercises.worksheet.sc
 ### java.lang.AssertionError: assertion failed: position error, parent span does not contain child span
-parent      =  extends CommandLineParser.FromString[LocalDate] {
-  def fromString(s: String) = LocalDate = _root_.scala.Predef.???
-} # -1,
-parent span = <3715..3810>,
-child       = def fromString(s: String) = LocalDate = _root_.scala.Predef.??? # -1,
-child span  = [3771..3775..3814]
+parent      = new java.io.File(_root_.scala.Predef.???) # -1,
+parent span = <1305..1573>,
+child       = _root_.scala.Predef.??? # -1,
+child span  = [1322..3002..3002]
 
 occurred in the presentation compiler.
 
@@ -13,126 +11,86 @@ presentation compiler configuration:
 
 
 action parameters:
-uri: file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/scala-impatient-3e-code/ch2/src/main/scala/Exercises.worksheet.sc
+uri: file:///C:/Users/james/Documents/GitHub/Scala_For_The_Impatient/scala-impatient-3e-code/ch4/src/main/scala/exercises.worksheet.sc
 text:
 ```scala
 object worksheet{
-  // 1 prints the message on the first line, and empty parentheses on the second line
-  import scala.compiletime.ops.double
-  //It prints the parentheses as if literal
-  println(println("Hello"))
+  // 1 Map of prices for a number of gizmos. Then a second map with same keys but
+  // prices at a ten percent discount
+  val fullPrices = Map("pen" -> 1.00, "book" -> 10.00, "GPU" -> 1000.00)
+  for (k,v) <- fullPrices yield (k,v*.9)
   
-  // 2 value and type of empty block expression {}, has only the absence of meaningful data
-  type {} //Unit
-   
-  // 3  assignment where x = y = 1 is valid
-  var i: Any = 0
-  var j = 0
+  // 2 Read words from a file using java.util.Scanner
+  // use a mutable map to count the frequency of words.
+  // at the end, print out the words and their counts
+  import java.util.*
+  import scala.collection.mutable
   
-  i = j = 1 // Does not set i to 1
+  val wordCounts = mutable.Map[String, Int]().withDefaultValue(0)
   
-  // 4 Scala loop from Java syntax: for(int i = 10, i >= 0; i--)System.out.println(i);
-  var i :Int = 10
-  while i >= 0 do
-    println(i)
-    i -= 1
-  end while
+  val in = new java.util.Scanner(new java.io.File("scala-impatient-3e-code/ch4/src/main/scala/myfile.txt"))
   
-  // 5 the signum of a number is 1 if positive, -1 if negative, and zero if 0
-  def signum(n: Double) =
-      def abs(x: Double) = if x >= 0 then x else -x
-      if n != 0 then
-          n/abs(n)
-      else
-          0
+  while in.hasNext() do
+      val word = in.next().toLowerCase().replaceAll("[^a-zA-Z0-9]","") //normalize words
+      if word.nonEmpty then wordCounts(word) += 1
   
-  // 6 function countdown(n:Int) that prints the numbers from n to 0 w/o returning val
-  //var number7: Int = 7
-  def countdown(n: Int) =
-      var count = n
-      while count >= 0 do
-        println(count)
-        count -= 1
-      end while
-  countdown(7)    
+  in.close()
+  for ((w, c) <- wordCounts) do println(s"$w: $c")
   
-  // 7 Write a for loop for computing product of unicode codes of all letters in str.
-  val h = "Hello"
-  var product = 1
-  def unicodeProduct(s: String) =
-      for i <- 0 to h.length -1 do
-          product *= h(i).toInt
-      product
+  // 3 Repeat the preceding exercise with an immutable map,
+  // choosing to switch to a scala source scanner- why use java so much?
+  import scala.io.Source
+  import scala.collection.immutable.*
   
-  // 8 Solve preceding without writing a loop
-  def unicodeProduct2(s: String = "Hello") =
-      var product = 1
-      s.foreach(product *= _)
-      product
-  unicodeProduct2()
-  //another formatting
-  def unicodeProduct2a(s: String = "Hello") =
-      var product = 1
-      s.foreach(c => product *= c)
-      product
-  unicodeProduct2a()
+  val source = source.fromFile("scala-impatient-3e-code/ch4/src/main/scala/myfile.txt")
   
-  // 9 Write a function that computes the product named product(s: String)
-  def product(s: String = "Hello") =
-      var productTotal = 1
-      s.foreach(c => productTotal *= c)
-      productTotal
-  product()
+  val wordCounts = Map[String, Int]().withDefaultValue(0)
   
-  // 10 Make the function recursive
-  def productRecursive(s: String) : Int =
-      if s.length == 0 then 1
-      else s.head * productRecursive(s.tail)
-  productRecursive("Hello")        
+  val in = new java.util.Scanner(new java.io.File("scala-
   
-  // 11 Function computes x^n where n is an integer, recursively
-  def recursiveExponent(x: BigDecimal, n: Integer) : BigDecimal =
-      if n == 0 then 1
-      else if n > 0 then
-        if n % 2 == 0 then recursiveExponent(x, n / 2) * recursiveExponent(x, n / 2) // + even n's
-        else x * recursiveExponent(x,n - 1) // + odd n's
-      else 1 / recursiveExponent(x, -n)//negative n's
-  recursiveExponent(3,3)
+  while in.hasNext() do
+      val word = in.next().toLowerCase().replaceAll("[^a-zA-Z0-9]","") //normalize words
+      if word.nonEmpty then wordCounts(word) += 1
   
-  // 12 String interpolator
-  object DateInterpolator {
-      import java.time.LocalDate
+  in.close()
   
-      extension (sc: StringContext)
-          def date(args: Any*): LocalDate =
-              
-              if sc.parts.length != args.length +1 then
-                  throw new IllegalArgumentException("Expected format is 'yyyy-mm-dd'.")
-              else
-                  val year = args(0).asInstanceOf[Int]
-                  val month = args(1).asInstanceOf[Int] 
-                  val day = args(2).asInstanceOf[Int]
-                  LocalDate.of(year, month, day)
-  }
-  val year = 2024; val month = 07; val day = 04
+  for ((w, c) <- wordCounts) do println(s"$w: $c")
   
-  //import Exercises$u002Eworksheet$_.this.DateInterpolator.date
-  import DateInterpolator.date
-  val testDate = date"$year-$month-$day"
-  println(testDate)  
-  
-  // 13 Parse a command line arg into an arbitrary type
-  // write a scala program that receives two dates on the command line and prints the number
-  // of days between them. Your Main function should have two params of type LocalDate.
-  import java.time.*
-  import scala.util.* 
-  
-  object DaysBetweenDates {
-      given CommandLineParser.FromString[LocalDate] with
-          def fromString(s: String) = LocalDate =
-  }
+  // 4 Repeat the preceding exercise with a sorted map, printing the words in sort order
   
   
+  // 5 Repeat the preceding exercise with a java.util.TreeMap adapted to sc API
+  
+  
+  // 6 Define a linked hash map that maps "Monday" to java.util.calendar.MONDAY,
+  // and similarly for the other weekdays. Demonstrate elements visited in insertion order
+  
+  
+  // 7 Print a table of all Java properties reported by the getProperties method of the
+  // java.lang.System class. Find length of longest key before printing table.
+  
+  
+  // 8 Write a function minmax(values: Array[Int]) that returns a pair containing the smallest
+  // and the largest values in the nonempty array
+  
+  
+  // 9 Reimplement the function from preceding ex to return an Option that is None if
+  // the array happens to be empty
+  
+  
+  // 10 Prompt the user for a first and last letter, then prints a matching word from
+  // scala.io.Source.fromFile("/usr/share/dict/words").mkString.split("\n")
+  // use find. What alternatives do y9u have for dealing with the returned option?
+  
+  
+  // 11 Demonstrate the argument of getOrElse method in the Option class is eval'd lazily
+  
+  
+  // 12 function lteqgt(values: Array[Int], v: Int) that returns a triple with counts
+  // of values less than v, equal to v, and greater than v.
+  
+  
+  // 13 What happens when you zip together two strings? Come up with a use case
 }
 ```
 
@@ -148,8 +106,6 @@ scala.runtime.Scala3RunTime$.assertFailed(Scala3RunTime.scala:8)
 	scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
 	scala.collection.immutable.List.foreach(List.scala:334)
 	dotty.tools.dotc.ast.Positioned.check$1(Positioned.scala:207)
-	dotty.tools.dotc.ast.Positioned.checkPos(Positioned.scala:228)
-	dotty.tools.dotc.ast.Positioned.check$1(Positioned.scala:202)
 	dotty.tools.dotc.ast.Positioned.checkPos(Positioned.scala:228)
 	dotty.tools.dotc.ast.Positioned.check$1(Positioned.scala:202)
 	dotty.tools.dotc.ast.Positioned.check$1$$anonfun$3(Positioned.scala:207)
@@ -212,9 +168,7 @@ scala.runtime.Scala3RunTime$.assertFailed(Scala3RunTime.scala:8)
 #### Short summary: 
 
 java.lang.AssertionError: assertion failed: position error, parent span does not contain child span
-parent      =  extends CommandLineParser.FromString[LocalDate] {
-  def fromString(s: String) = LocalDate = _root_.scala.Predef.???
-} # -1,
-parent span = <3715..3810>,
-child       = def fromString(s: String) = LocalDate = _root_.scala.Predef.??? # -1,
-child span  = [3771..3775..3814]
+parent      = new java.io.File(_root_.scala.Predef.???) # -1,
+parent span = <1305..1573>,
+child       = _root_.scala.Predef.??? # -1,
+child span  = [1322..3002..3002]

@@ -13,7 +13,7 @@ for (k,v) <- fullPrices yield (k,v*.9)
 // 2 Read words from a file using java.util.Scanner
 // use a mutable map to count the frequency of words.
 // at the end, print out the words and their counts
-import java.util.*
+//import java.util.*
 import scala.collection.mutable
 
 val wordCounts = mutable.Map[String, Int]().withDefaultValue(0)
@@ -26,6 +26,77 @@ while in.hasNext() do
 
 in.close()
 for ((w, c) <- wordCounts) do println(s"$w: $c")
+
+// 3 Repeat the preceding exercise with an immutable map,
+// choosing to switch to a scala source scanner- why use java so much?
+import scala.io.Source
+import scala.collection.immutable.*
+val source3 = Source.fromFile("scala-impatient-3e-code/ch4/src/main/scala/myfile.txt")
+
+val wordCounts3: Map[String, Int] = source3.getLines().toList
+    .flatMap(_.split("\\W+")) //lines into words
+    .map(_.toLowerCase())
+    .filter(_.nonEmpty)
+    .foldLeft(Map.empty[String, Int]) { (c,w) =>
+        c + (w -> (c.getOrElse(w, 0) + 1) )
+    }
+
+source3.close()
+
+for ((w, c) <- wordCounts3) do println(s"$w: $c")
+
+// 4 Repeat the preceding exercise with a sorted map, printing the words in sort order
+// completing sorting at print request
+val source4 = Source.fromFile("scala-impatient-3e-code/ch4/src/main/scala/myfile.txt")
+
+val wordCounts4: Map[String, Int] = source4.getLines().toSeq
+    .sortWith(( s, t) => s.charAt(0) < t.charAt(0))
+    .flatMap(_.split("\\W+")) //lines into words
+    .map(_.toLowerCase())
+    .filter(_.nonEmpty)
+    .foldLeft(Map.empty[String, Int]) { (c,w) =>
+        c + (w -> (c.getOrElse(w, 0) + 1) )     
+    }
+
+source4.close()
+
+wordCounts4.toSeq.sortBy(_._1).foreach {
+    case (w, c) => println(s"$w: $c")
+}
+
+// 5 Repeat the preceding exercise with a java.util.TreeMap adapted to sc API
+
+
+
+// 6 Define a linked hash map that maps "Monday" to java.util.calendar.MONDAY,
+// and similarly for the other weekdays. Demonstrate elements visited in insertion order
+
+
+// 7 Print a table of all Java properties reported by the getProperties method of the
+// java.lang.System class. Find length of longest key before printing table.
+
+
+// 8 Write a function minmax(values: Array[Int]) that returns a pair containing the smallest
+// and the largest values in the nonempty array
+
+
+// 9 Reimplement the function from preceding ex to return an Option that is None if
+// the array happens to be empty
+
+
+// 10 Prompt the user for a first and last letter, then prints a matching word from
+// scala.io.Source.fromFile("/usr/share/dict/words").mkString.split("\n")
+// use find. What alternatives do y9u have for dealing with the returned option?
+
+
+// 11 Demonstrate the argument of getOrElse method in the Option class is eval'd lazily
+
+
+// 12 function lteqgt(values: Array[Int], v: Int) that returns a triple with counts
+// of values less than v, equal to v, and greater than v.
+
+
+// 13 What happens when you zip together two strings? Come up with a use case
 /*</script>*/ /*<generated>*//*</generated>*/
 }
 
