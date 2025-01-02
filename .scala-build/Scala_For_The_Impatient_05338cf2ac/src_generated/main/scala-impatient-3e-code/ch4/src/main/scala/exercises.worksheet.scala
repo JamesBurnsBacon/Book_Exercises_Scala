@@ -149,16 +149,36 @@ matchingWord match {
     case None => println("No matching words found.") 
 }
 
-
-
 // 11 Demonstrate the argument of getOrElse method in the Option class is eval'd lazily
+val someVal: Option[Any] = Some(9)
+val noneVal: Option[Any] = None
 
+println(someVal.getOrElse(throw new RuntimeException("Lazily Evaluated!")))
+//println(noneVal.getOrElse(throw new RuntimeException("Lazily Evaluated!"))) //throws error
 
 // 12 function lteqgt(values: Array[Int], v: Int) that returns a triple with counts
 // of values less than v, equal to v, and greater than v.
+def lteqgt(values: Array[Int], v: Int): (Int, Int, Int) =
+    var lessThans = 0
+    var equalTos = 0
+    var greaterThans = 0
+    for (value <- values) do
+        if (value < v) then lessThans += 1
+        else if (value == v) then equalTos += 1
+        else greaterThans += 1  
+    (lessThans, equalTos, greaterThans) 
 
+lteqgt(Array(1,2,3,4,5), 3)                   
 
 // 13 What happens when you zip together two strings? Come up with a use case
+// use case: making cute txt diminutives e.g. "happy birthday" becomes "happyy birthdayy"
+
+//you get an array of tuples with strings inside
+val basicBirthdayWish = Array("Happy", " Birthday")
+val cuteTextDiminutive = Array("y", "y")
+
+val cuteBirthdayDiminutive = basicBirthdayWish.zip(cuteTextDiminutive).mkString
+println(cuteBirthdayDiminutive)
 /*</script>*/ /*<generated>*//*</generated>*/
 }
 

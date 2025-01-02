@@ -5,4 +5,4 @@ matrix(row)(column) = 42
 matrix
 val triangle = Array.ofDim[Array[Int]](10)
 for i <- triangle.indices do 
-  triangle(i) = Array.ofDim[Int](i + 1)
+  triangle(i) = Array.ofDim[Int](i + 1)                      

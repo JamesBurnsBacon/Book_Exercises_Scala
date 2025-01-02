@@ -23,7 +23,7 @@ r
 
 // Consider adding an "end" statement to a long quiet loop:
 r = 1
-n = 10; :type n
+n = 10
 while n > 0 do
   r = r * n
   // Many more lines

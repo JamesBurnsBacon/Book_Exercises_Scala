@@ -25,7 +25,7 @@ strings
 // to traverse, use                for elem <-arr do
 // to transform into new array     for elem <-arr yield
 // sc and java arrays are interoperable, for ArrayBuffer, ues scala.jdk.CollectionConverters
-
+// an array is like a func that maps the index vals to elements
 
 /*</script>*/ /*<generated>*//*</generated>*/
 }
