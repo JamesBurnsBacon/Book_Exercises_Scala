@@ -13,7 +13,7 @@ The `[AL][1-3]` refer to Martin Odersky's Scala levels.
 - [x] Control Structures and Functions  
 - [x] Arrays  
 - [x] Maps and Tuples  
-- [ ] Classes  
+- [x] Classes  
 - [ ] Objects  
 - [ ] Packages and Imports  
 - [ ] Inheritance  
