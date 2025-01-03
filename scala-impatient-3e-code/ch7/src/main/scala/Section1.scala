@@ -5,3 +5,5 @@
   println(s"wilma: ${wilma.description}")
   val user = com.horstmann.users.User("fred", "secret")
   println(s"user: ${user.description}")
+
+//compilation fails because horstmann is not a member of com
