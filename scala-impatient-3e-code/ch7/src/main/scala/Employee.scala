@@ -7,3 +7,6 @@ package com :
           salary += Math.percentOf(salary, rate)
     object Math :
       def percentOf(value: Double, rate: Double) = value * rate / 100
+
+// can use _root_ for absolute package names if safety is needed
+// eg val employees = _root_.scala.collection.mutable.ArrayBuffer[Employee]()
