@@ -5,3 +5,5 @@ class Group :
   import scala.collection.mutable.*
   import com.horstmann.users.*
   val members = ArrayBuffer[User]()
+
+// restrict imports to where they are needed in scope

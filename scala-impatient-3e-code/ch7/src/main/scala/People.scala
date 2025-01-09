@@ -13,3 +13,5 @@ package com :
         // Can restrict visibility to specific package
         private[users] def longDescription = s"A user with name $username and password $password"
         private[horstmann] def safeDescription = s"A user with name $username and password ${"*" * password.length}"
+
+        //longDescription is only available in package users

@@ -30,3 +30,5 @@
     // java.awt.geom.AffineTransform
   transform
 }
+
+//never use * to identify a package, reserve for importing all

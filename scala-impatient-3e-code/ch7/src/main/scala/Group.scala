@@ -9,3 +9,6 @@ class Group :
   import scala.collection.mutable.*
   import com.horstmann.users.*
   val members = ArrayBuffer[User]()
+
+  //when all code in the file belongs to the same package, use top of file notation
+  //keep all top-level definitions of a package in a single file with a fixed name
