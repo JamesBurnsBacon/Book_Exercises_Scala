@@ -31,3 +31,5 @@ package cp3 :
   @main def demo =
     val cp = ColoredPoint(Color.RED, Point(3, 4))
     println(cp.x)
+
+  // favor composition over inheritance in SWE. 
